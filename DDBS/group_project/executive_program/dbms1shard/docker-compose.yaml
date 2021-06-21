@@ -1,0 +1,16 @@
+
+version: '3'
+
+services:
+
+  dmbs1_svr:
+    container_name: dbms1_svr
+    image: mongo
+    command: mongod --shardsvr --replSet dbms1 --port 27017 --dbpath /data/db
+    ports:
+      - 50005:27017
+    volumes:
+      - dbms1_svr:/data/db
+
+volumes:
+  dbms1_svr: {}

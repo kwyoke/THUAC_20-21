@@ -1,0 +1,11 @@
+
+version: '3'
+
+services:
+
+  mongos1:
+    container_name: mongos1
+    image: mongo
+    command: mongos --configdb cfg/${HOSTIP}:40004,${HOSTIP}:40005,${HOSTIP}:40006 --bind_ip 0.0.0.0 --port 27017
+    ports:
+      - 60001:27017

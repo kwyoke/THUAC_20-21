@@ -1,0 +1,16 @@
+
+version: '3'
+
+services:
+
+  grid2_svr:
+    container_name: grid2_svr
+    image: mongo
+    command: mongod --shardsvr --replSet grid2 --port 27017 --dbpath /data/db
+    ports:
+      - 50008:27017
+    volumes:
+      - grid2_svr:/data/db
+
+volumes:
+  grid2_svr: {}
